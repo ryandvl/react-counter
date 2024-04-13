@@ -5,14 +5,18 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 
   #counter-text {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
     width: 100%;
     text-align: center;
     user-select: none;
     font-size: 8em;
-    font-weight: bold;
   }
 
   .counter-buttons {
@@ -20,5 +24,159 @@ main {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    button {
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      &:enabled {
+        cursor: pointer;
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 0.375rem;
+      outline: none;
+    }
+  }
+
+  .counter-options-buttons {
+    display: flex;
+    gap: 1rem;
+
+    input {
+      &:focus {
+        border-color: #5eead4;
+      }
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      outline: none;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 0.375rem;
+      width: 6rem;
+      height: 2.5rem;
+    }
+  }
+
+  #counter-copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid;
+    padding: 0.5rem;
+    border: none;
+  }
+}
+
+html {
+  .counter-buttons button {
+    &:disabled {
+      background-color: #d4d4d8;
+
+      * {
+        color: #52525b;
+      }
+    }
+
+    &:enabled {
+      background-color: #e4e4e7;
+    }
+
+    &:focus {
+      background-color: var(--light-focus-color);
+
+      * {
+        color: black;
+      }
+    }
+
+    border: 1px solid var(--light-border-color);
+  }
+
+  .counter-options-buttons input {
+    background-color: #e4e4e7;
+    border-color: var(--light-border-color);
+  }
+
+  #counter-copy {
+    background-color: #2dd4bf;
+    outline: none;
+
+    &:focus {
+      background-color: var(--light-focus-color);
+    }
+
+    svg * {
+      color: #134e4a;
+    }
+
+    span {
+      color: #042f2e;
+      font-weight: bold;
+    }
+  }
+}
+
+html.dark {
+  .counter-buttons button {
+    &:disabled {
+      background-color: #27272a;
+
+      * {
+        color: #71717a;
+      }
+    }
+
+    &:enabled {
+      background-color: #18181b;
+    }
+
+    &:focus {
+      background-color: var(--dark-focus-color);
+
+      * {
+        color: white;
+      }
+    }
+
+    border: 1px solid var(--dark-border-color);
+  }
+
+  .counter-options-buttons input {
+    background-color: #18181b;
+    border-color: var(--dark-border-color);
+
+    &:focus {
+      border-color: var(--dark-focus-color);
+    }
+  }
+
+  #counter-copy {
+    background-color: #2dd4bf;
+
+    &:focus {
+      background-color: var(--dark-focus-color);
+    }
+
+    svg * {
+      color: #134e4a;
+    }
+
+    span {
+      color: #042f2e;
+      font-weight: bold;
+    }
   }
 }

@@ -28,7 +28,7 @@ export function CounterButton({
           },
         ],
 
-        300
+        500
       );
     } catch (err) {
       console.error("Navigator not support Animate API");

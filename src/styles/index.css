@@ -13,7 +13,7 @@
   /* Light mode */
   --light-background-color: #f4f4f5; /* tailwind zinc-100 */
   --light-text-color: #09090b; /* tailwind zinc-950 */
-  --light-border-color: #d4d4d8; /* tailwind zinc-300 */
+  --light-border-color: #a1a1aa; /* tailwind zinc-400 */
   --light-button-hover-color: #d4d4d8; /* tailwind zinc-800 */
   --light-focus-color: #5eead4; /* tailwind teal-300 */
   --light-counter-left: #fca5a5; /* tailwind red-300 */

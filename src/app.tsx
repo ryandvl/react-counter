@@ -10,6 +10,12 @@ export function App() {
   const [increaseButtonDisabled, setIncreaseButtonDisabled] = useState(true);
 
   useEffect(() => {
+    const counterTextElement = document.getElementById(
+      "decrease-amount"
+    ) as HTMLInputElement;
+
+    checkCounterTextValue(counterTextElement.value, "decrease-amount");
+
     setCounterInTitle();
   }, [count]);
 
@@ -30,16 +36,18 @@ export function App() {
       });
   }
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    event.target.value = event.target.value.replace(/[^\d]/g, "");
+  function checkCounterTextValue(valueString: string, targetId: string) {
+    const value = Number(valueString);
 
-    const disabled = Number(event.target.value) < 1;
-
-    if (event.target.id == "decrease-amount") {
-      setDecreaseButtonDisabled(disabled);
+    if (targetId == "decrease-amount") {
+      setDecreaseButtonDisabled(value < 1 || value > count);
     } else {
-      setIncreaseButtonDisabled(disabled);
+      setIncreaseButtonDisabled(value < 1);
     }
+  }
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    checkCounterTextValue(event.target.value, event.target.id);
   }
 
   return (
@@ -54,7 +62,11 @@ export function App() {
             buttonType="decrease-amount"
             disabled={decreaseButtonDisabled}
           />
-          <CounterButton setState={setCount} buttonType="decrease" />
+          <CounterButton
+            setState={setCount}
+            buttonType="decrease"
+            disabled={count == 0}
+          />
           <CounterButton setState={setCount} buttonType="increase" />
           <CounterButton
             setState={setCount}
@@ -67,36 +79,38 @@ export function App() {
           <input
             onChange={handleInputChange}
             id="decrease-amount"
-            type="text"
+            type="number"
+            placeholder="Decrease"
           />
-
-          <button id="counter-copy" onClick={handleCounterCopyClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-              <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
-              <path d="M16 4h2a2 2 0 0 1 2 2v4" />
-              <path d="M21 14H11" />
-              <path d="m15 10-4 4 4 4" />
-            </svg>
-            <span>Copy to Clipboard</span>
-          </button>
 
           <input
             onChange={handleInputChange}
             id="increase-amount"
-            type="text"
+            type="number"
           />
         </div>
+
+        <button id="counter-copy" onClick={handleCounterCopyClick}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+            <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+            <path d="M16 4h2a2 2 0 0 1 2 2v4" />
+            <path d="M21 14H11" />
+            <path d="m15 10-4 4 4 4" />
+          </svg>
+
+          <span>Copy Number to Clipboard</span>
+        </button>
       </main>
     </>
   );
