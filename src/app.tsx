@@ -87,6 +87,7 @@ export function App() {
             onChange={handleInputChange}
             id="increase-amount"
             type="number"
+            placeholder="Increase"
           />
         </div>
 
