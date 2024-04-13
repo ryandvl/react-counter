@@ -7,19 +7,12 @@ main {
   align-items: center;
   gap: 3rem;
 
-  .counter-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10rem;
-    height: 10rem;
-    overflow: hidden;
-
-    #counter-text {
-      user-select: none;
-      font-size: 8em;
-      font-weight: bold;
-    }
+  #counter-text {
+    width: 100%;
+    text-align: center;
+    user-select: none;
+    font-size: 8em;
+    font-weight: bold;
   }
 
   .counter-buttons {
@@ -27,25 +20,5 @@ main {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-  }
-}
-
-@keyframes text-animation-to-left {
-  0% {
-    margin-left: 0;
-  }
-
-  100% {
-    margin-left: -360px;
-  }
-}
-
-@keyframes text-animation-to-right {
-  0% {
-    margin-right: 0;
-  }
-
-  100% {
-    margin-right: -360px;
   }
 }

@@ -7,6 +7,8 @@
   --dark-border-color: #71717a; /* tailwind zinc-500 */
   --dark-button-hover-color: #3f3f46; /* tailwind zinc-700 */
   --dark-focus-color: #14b8a6; /* tailwind teal-500 */
+  --dark-counter-left: #ef4444; /* tailwind red-500 */
+  --dark-counter-right: #84cc16; /* tailwind lime-500 */
 
   /* Light mode */
   --light-background-color: #f4f4f5; /* tailwind zinc-100 */
@@ -14,6 +16,8 @@
   --light-border-color: #d4d4d8; /* tailwind zinc-300 */
   --light-button-hover-color: #d4d4d8; /* tailwind zinc-800 */
   --light-focus-color: #5eead4; /* tailwind teal-300 */
+  --light-counter-left: #fca5a5; /* tailwind red-300 */
+  --light-counter-right: #bef264; /* tailwind lime-300 */
 }
 
 * {
