@@ -1,5 +1,6 @@
 {
   "name": "react-counter",
+  "description": "Beginner Web Application to show how React States works.",
   "version": "1.0.0",
   "repository": {
     "type": "github",
